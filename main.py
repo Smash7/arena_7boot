@@ -1,4 +1,5 @@
 import random
+import math
 from classes import Paladin, Warrior, Thing
 
 
@@ -16,8 +17,10 @@ descriptions_things = [
     "Damned", "Small", "Effective", "Simple",
     "Faithful", "Selected"
 ]
+quantity_persons = int(input("Выберете количество персонажей:"))
+quantity_items = quantity_persons * 4
 
-for _ in range(10):
+for _ in range(quantity_items):
     name = random.choice(names_things) + random.choice(descriptions_things)
     protection_percent = random.uniform(0.01, 0.10)
     attack = random.randint(1, 20)
@@ -37,7 +40,6 @@ names = [
     "Olivia", "Peter", "Rachel", "Sam", "Tina"
 ]
 characters = []
-quantity_persons = int(input("Выберете количество персонажей:"))
 for _ in range(quantity_persons):
     name = random.choice(names)
     while name in characters:
@@ -70,11 +72,11 @@ while len(arena) > 1:
     damage = attack_damage - attack_damage * final_protection
 
     print(f"\033[1;31m{attacker.name} наносит удар по {defender.name} "
-          f"{damage:.2f} урона\033[0m")
+          f"{damage:.2f} урона \n\u001b[32mОсталось {math.ceil(defender.hp)}HP\033[0m")
     defender.take_damage(damage)
 
     if defender.hp <= 0:
         print(f"\033[1;30m{defender.name} погиб\033[0m")
         arena.remove(defender)
 
-    print(f"\033[1;33mПобедитель: {arena[0].name}\033[0m")
+print(f"\033[1;33mПобедитель: {arena[0].name}\033[0m")
