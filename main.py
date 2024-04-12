@@ -71,9 +71,10 @@ while len(arena) > 1:
     final_protection = defender.get_total_protection()
     damage = attack_damage - attack_damage * final_protection
 
-    print(f"\033[1;31m{attacker.name} наносит удар по {defender.name} "
-          f"{damage:.2f} урона \n\u001b[32mУ {defender.name} осталось {math.ceil(defender.hp)}HP\033[0m")
     defender.take_damage(damage)
+    print(f"\033[1;31m{attacker.name} наносит удар по {defender.name} "
+          f"{damage:.2f} урона \n\u001b[32mУ {defender.name} осталось "
+          f"{math.ceil(defender.hp)}HP\033[0m")
 
     if defender.hp <= 0:
         print(f"\033[1;30m{defender.name} погиб\033[0m")
