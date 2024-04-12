@@ -1,6 +1,9 @@
 import random
 import math
 from classes import Paladin, Warrior, Thing
+from colorama import init
+init()
+from colorama import Fore, Style
 
 
 # Шаг 1 - создаем произвольное количество вещей с различными параметрами,
@@ -72,12 +75,14 @@ while len(arena) > 1:
     damage = attack_damage - attack_damage * final_protection
 
     defender.take_damage(damage)
-    print(f"\033[1;31m{attacker.name} наносит удар по {defender.name} "
-          f"{damage:.2f} урона \n\u001b[32mУ {defender.name} осталось "
-          f"{math.ceil(defender.hp)}HP\033[0m")
+    print(Fore.RED + Style.BRIGHT +
+          f"{attacker.name} наносит удар по {defender.name} "
+          f"{damage:.2f} урона \n",
+          Fore.GREEN + f"У {defender.name} осталось "
+          f"{math.ceil(defender.hp)}HP")
 
     if defender.hp <= 0:
-        print(f"\033[1;30m{defender.name} погиб\033[0m")
+        print(Fore.BLACK + Style.BRIGHT + f"{defender.name} погиб")
         arena.remove(defender)
 
-print(f"\033[1;33mПобедитель: {arena[0].name}\033[0m")
+print(Fore.YELLOW + Style.BRIGHT + f"Победитель: {arena[0].name}")
