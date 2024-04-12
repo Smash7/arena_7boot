@@ -2,9 +2,10 @@ import random
 import math
 from classes import Paladin, Warrior, Thing
 from colorama import init
-init()
 from colorama import Fore, Style
 
+
+init()
 
 # Шаг 1 - создаем произвольное количество вещей с различными параметрами,
 # процент защиты не должен превышать 10%(0.1).
@@ -67,7 +68,7 @@ arena = characters.copy()
 while len(arena) > 1:
     attacker = random.choice(arena)
     defender = random.choice(arena)
-    while attacker == defender:
+    while attacker is defender:
         defender = random.choice(arena)
 
     attack_damage = attacker.get_total_attack()
