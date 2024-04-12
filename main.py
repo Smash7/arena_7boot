@@ -20,7 +20,10 @@ def battle():
         "Faithful", "Selected"
     ]
 
-    for _ in range():
+    quantity_things= input("Select number of items:")
+    quantity_things = int(quantity_things)
+
+    for _ in range(quantity_things):
         name = random.choice(names_things) + random.choice(descriptions_things)
         protection_percent = random.uniform(0.01, 0.10)
         attack = random.randint(1, 20)
@@ -41,7 +44,9 @@ def battle():
         "Olivia", "Peter", "Rachel", "Sam", "Tina"
     ]
     characters = []
-    for _ in range(10):
+    quantity_persons = input("Select number of persons:")
+    quantity_persons = int(quantity_persons)
+    for _ in range(quantity_persons):
         name = random.choice(names)
         hp = random.randint(100, 200)
         base_attack = random.randint(10, 20)
