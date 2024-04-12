@@ -1,20 +1,34 @@
 import random
-import Paladin
-import Thing
-import Warrior
+from Paladin import Paladin
+from Thing import Thing
+from Warrior import Warrior
 
 
 def battle():
     # Шаг 1 - создаем произвольное количество вещей с различными параметрами,
     # процент защиты не должен превышать 10%(0.1).
     # Сортируем по проценту защиты, по возрастанию;
-    things = [
-        Thing("Shield", 0.08, 0, 100),
-        Thing("Sword", 0, 20, 80),
-        Thing("Armor", 0.1, 0, 120),
-        Thing("Ring", 0.05, 5, 50),
-        Thing("Amulet", 0.03, 3, 30),
+    things = []
+    names_things = [
+        "Shield", "Sword", "Armor",
+        "Amulet", "Bow", "blade", "Helmet",
+        "Gloves", "Sheath", "Hauberk"
     ]
+    descriptions_things = [
+        "Durable", "Strong", "Heavy", "Ancients",
+        "Damned", "Small", "Effective", "Simple",
+        "Faithful", "Selected"
+    ]
+
+    for _ in range():
+        name = random.choice(names_things) + random.choice(descriptions_things)
+        protection_percent = random.uniform(0.01, 0.10)
+        attack = random.randint(1, 20)
+        hp = random.randint(5, 100)
+        new_thing = Thing(name, protection_percent, attack, hp)
+        things.append(new_thing)
+
+
     things.sort(key=lambda x: x.protection_percent)
 
     # Шаг 2 - создаем произвольно 10 персонажей,
