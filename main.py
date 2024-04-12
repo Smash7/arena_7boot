@@ -1,3 +1,4 @@
+import copy
 import random
 import math
 from classes import Paladin, Warrior, Thing
@@ -64,11 +65,11 @@ for character in characters:
 
 # Шаг 4 - отправляем персонажей на арену, и в цикле в произвольном порядке
 # выбирается пара Нападающий и Защищающийся.
-arena = characters.copy()
+arena = copy.deepcopy(characters)
 while len(arena) > 1:
     attacker = random.choice(arena)
     defender = random.choice(arena)
-    while attacker is defender:
+    while attacker == defender:
         defender = random.choice(arena)
 
     attack_damage = attacker.get_total_attack()
