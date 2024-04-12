@@ -20,7 +20,9 @@ def battle():
         "Faithful", "Selected"
     ]
 
-    for _ in range():
+    quantity_things= int(input("Select number of items:"))
+
+    for _ in range(quantity_things):
         name = random.choice(names_things) + random.choice(descriptions_things)
         protection_percent = random.uniform(0.01, 0.10)
         attack = random.randint(1, 20)
@@ -41,7 +43,8 @@ def battle():
         "Olivia", "Peter", "Rachel", "Sam", "Tina"
     ]
     characters = []
-    for _ in range(10):
+    quantity_persons = int(input("Select number of persons:"))
+    for _ in range(quantity_persons):
         name = random.choice(names)
         hp = random.randint(100, 200)
         base_attack = random.randint(10, 20)
@@ -70,12 +73,14 @@ def battle():
         final_protection = defender.get_total_protection()
         damage = attack_damage - attack_damage * final_protection
 
-        print(f"{attacker.name} наносит удар по {defender.name} "
-              f"на {damage:.2f} урона")
+        print(f"\033[1;31m{attacker.name} наносит удар по {defender.name} "
+              f"{damage:.2f} урона\033[0m")
         defender.take_damage(damage)
 
         if defender.hp <= 0:
-            print(f"{defender.name} погиб")
+            print(f"\033[1;30m{defender.name} погиб\033[0m")
             arena.remove(defender)
 
-    print(f"Победитель: {arena[0].name}")
+    print(f"\033[1;33mПобедитель: {arena[0].name}\033[0m")
+
+battle()
