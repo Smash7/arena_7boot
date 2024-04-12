@@ -8,6 +8,8 @@ class Person:
 
     def set_things(self, things):
         self.things = things
+        for thing in things:
+            self.hp += thing.hp
 
     def get_total_attack(self):
         total_attack = self.base_attack

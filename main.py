@@ -1,5 +1,5 @@
 import random
-from .classes import Paladin, Warrior, Thing
+from classes import Paladin, Warrior, Thing
 
 
 # Шаг 1 - создаем произвольное количество вещей с различными параметрами,
@@ -37,7 +37,7 @@ names = [
     "Olivia", "Peter", "Rachel", "Sam", "Tina"
 ]
 characters = []
-quantity_persons = int(input("Select number of persons:"))
+quantity_persons = int(input("Выберете количество персонажей:"))
 for _ in range(quantity_persons):
     name = random.choice(names)
     while name in characters:
@@ -70,7 +70,7 @@ while len(arena) > 1:
     damage = attack_damage - attack_damage * final_protection
 
     print(f"{attacker.name} наносит удар по {defender.name} "
-            f"на {damage:.2f} урона")
+          f"на {damage:.2f} урона")
     defender.take_damage(damage)
 
     if defender.hp <= 0:
