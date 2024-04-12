@@ -1,7 +1,5 @@
 import random
-from Paladin import Paladin
-from Thing import Thing
-from Warrior import Warrior
+from .classes import Paladin, Warrior, Thing
 
 
 def battle():
@@ -20,7 +18,7 @@ def battle():
         "Faithful", "Selected"
     ]
 
-    quantity_things= int(input("Select number of items:"))
+    quantity_things = int(input("Select number of items:"))
 
     for _ in range(quantity_things):
         name = random.choice(names_things) + random.choice(descriptions_things)
@@ -29,7 +27,6 @@ def battle():
         hp = random.randint(5, 100)
         new_thing = Thing(name, protection_percent, attack, hp)
         things.append(new_thing)
-
 
     things.sort(key=lambda x: x.protection_percent)
 

@@ -30,3 +30,25 @@ class Person:
         return f"{self.name} (HP: {self.hp}, "
         "Attack: {self.get_total_attack()}, "
         "Protection: {self.get_total_protection()})"
+
+
+class Warrior(Person):
+    def __init__(self, name, hp, base_attack, base_protection):
+        super().__init__(name, hp, base_attack * 2, base_protection)
+
+
+class Thing:
+    def __init__(self, name, protection_percent, attack, hp):
+        self.name = name
+        self.protection_percent = protection_percent
+        self.attack = attack
+        self.hp = hp
+
+    def __str__(self):
+        return f"{self.name} (Protection: {self.protection_percent}, "
+        f"Attack: {self.attack}, HP: {self.hp})"
+
+
+class Paladin(Person):
+    def __init__(self, name, hp, base_attack, base_protection):
+        super().__init__(name, hp * 2, base_attack, base_protection * 2)
